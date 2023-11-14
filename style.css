@@ -1,0 +1,323 @@
+body {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    background: white;
+}
+
+/* テーブル全般 */
+table {
+    border-collapse: collapse;
+}
+
+#contact {
+    margin-right: 10px;
+}
+
+#mail a:visited {
+    color: rgba(255, 192, 0, 1);
+}
+#mail a:link {
+    color: rgba(255, 192, 0, 1);
+}
+
+/* 画面左側（操作エリア） */
+#select_area {
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* 画面右側（結果表示エリア） */
+#result_area {
+    margin-left: 340px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* 画面左側の詳細 */
+#input_header_area {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#tag_select_area {
+    text-align: center;
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+#input_footer_area {
+    bottom: 0;
+}
+
+/* 画面右側の詳細 */
+#result_header_area {
+    width: 100%;
+    top: 0px;
+}
+
+/* 結果表示テーブル */
+#result_list {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#table_area {
+    margin-top: 0px;
+    margin-left: 0px;
+    padding: 0;
+    overflow-y: scroll;
+    flex-grow: 1;
+}
+
+/* 結果が多すぎるため全件表示しない文言 */
+#result_over {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 200px;
+    display: none;
+}
+
+/* 結果が見つからなかった文言 */
+#result_none {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+#result_footer_area {
+    display: flex;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 20px;
+    justify-content: flex-end;
+}
+#contact_area {
+    display: flex;
+}
+
+.select_table {
+    table-layout: fixed;
+}
+
+.tag_category {
+    margin: 5px 0 0 0;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+#keyword_input_area {
+    text-align: center;
+}
+
+/* キーワード入力欄 */
+#keyword_input {
+    padding-left: 10px;
+    text-align: center;
+    height: 1.5em;
+    width: 85%;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #999999;
+    -webkit-appearance: none;
+}
+#keyword_input::-ms-clear {
+    visibility: hidden;
+}
+/* クリアボタン */
+#clear_button {
+    margin: 20px auto 10px auto;
+    width: 85%;
+    padding: 1px 3px 1px 3px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: white;
+    line-height: 2;
+    font-size: 0.75em;
+    cursor: pointer;
+}
+
+/* 表の上部（検索件数やタイトルなど） */
+.msg_text {
+    margin-right: 30px;
+    vertical-align: middle;
+}
+
+#result_area_guide {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#copyright_area {
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+#page_title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 2em;
+}
+#copyright {
+    font-size: 0.5em;
+}
+
+#title_icon {
+    height: 35px;
+    margin-right: 10px;
+}
+
+/* チェックボックスを非表示 */
+input[type="checkbox"] {
+    display: none;
+    margin: 0px;
+    padding: 0px;
+}
+/* タグボタンの整列*/
+.tag_label {
+    padding: 4px 10px;
+    text-align: left;
+    border-radius: 5px;
+    line-height: 1.5;
+    margin: 1px 3px;
+    font-size: 0.72em;
+    display: inline-block;
+    cursor: pointer;
+    width: 130px;
+}
+.tagDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* タグボタンが選択されたときの色 */
+input[type="checkbox"] + label {
+    color: white;
+    background-color: rgba(33, 33, 55, 0.3);
+}
+
+.result_table {
+    margin-right: 10px;
+}
+
+.guide {
+    text-align: center;
+    font-size: 0.75em;
+    margin-bottom: 5px;
+}
+
+/* テーブルの最後は太線 */
+table #list tr:last-child {
+    border-bottom: 2px solid #18521b;
+}
+
+#result_list td {
+    padding: 0.4em 5px 0.4em 0.6em;
+    word-break: break-word;
+}
+thead th {
+    text-align: center;
+}
+
+#result_tbody {
+    color: #7f7f7f;
+}
+
+.t_header {
+    position: sticky;
+    top: 0;
+}
+
+/* テーブルタイトルの背景色（ただし、1～3はExcel設定で上書きされる） */
+#header_1 {
+    width: 200px;
+    background-color: #bfbfbf;
+}
+#header_2 {
+    width: 200px;
+    background-color: #00b0f0;
+}
+
+#header_3 {
+    width: 200px;
+    background-color: #bfbfbf;
+}
+
+#header_4 {
+    width: 4em;
+    background-color: #00b0f0;
+}
+
+#header_5 {
+    width: 200px;
+    background-color: #bfbfbf;
+}
+
+#header_6 {
+    width: 200px;
+    background-color: #00b0f0;
+}
+
+#header_7 {
+    width: 200px;
+    background-color: #bfbfbf;
+}
+
+#header_8 {
+    width: 200px;
+    background-color: #00b0f0;
+}
+/* 結果一覧のテーブルタイトル */
+.title {
+    text-align: left;
+    font-weight: bold;
+}
+.keyword {
+    text-align: left;
+    font-size: 0.75em;
+}
+.address {
+    text-align: left;
+    font-size: 0.75em;
+}
+
+/* 結果一覧表のテーブル書式 */
+.result_item {
+    background-color: #fff;
+    padding: 0.35em;
+    border-bottom: 1px dotted #bfbfbf;
+    font-size: 0.9em;
+}
+
+/* スクロールバーの意匠（Chrome用） */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 50, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
