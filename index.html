@@ -1,102 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="UTF-8" />
-        <title>検索システム</title>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="stylesheet" href="custom.css" />
-        <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+        <title>Excel Table to Teams Link</title>
     </head>
-
     <body>
-        <!-- 操作エリア -->
-        <div id="select_area">
-            <!-- ヘッダ部分 -->
-            <div id="input_header_area" class="guide">作業名</div>
-            <!-- タグ選択領域 -->
-            <div id="tag_select_area">
-                <form id="select_tag" name="select_tag"></form>
-            </div>
-            <div id="input_footer_area">
-                <!-- テキスト入力欄 -->
-                <div id="keyword_input_area">
-                    <div class="guide">キーワードの絞り込み</div>
-                    <input
-                        type="text"
-                        class="inputBox"
-                        id="keyword_input"
-                        tabindex="1"
-                        placeholder="入力してください"
-                        autocomplete="off"
-                    />
-                </div>
-
-                <div id="clear_button">検索条件をクリア</div>
-            </div>
+        <h1>かんたんグルチャ -web版-</h1>
+        <div
+            contenteditable="true"
+            id="pasteArea"
+            style="border: 1px solid black; min-height: 20px; padding: 10px"
+            onclick="clearInitialText()"
+        >
+            ここにExcelからコピーしたテーブルをペーストしてください。
+        </div>
+        <input type="text" id="chatName" placeholder="チャット名を入力" />
+        <button onclick="processTable()">リンク生成</button>
+        <div id="output">
+            <a href="#" id="generatedLink">生成されたリンクはこちら</a>
         </div>
 
-        <!-- 検索結果表示テーブル -->
-        <div id="result_area">
-            <div id="result_header_area">
-                <!-- 検索タグを表示(タグが選択されてるときのみ) -->
-                <div id="result_area_guide">
-                    <span id="msg_searchword" class="msg_text">
-                        <span id="search_tag"> </span>
-                        <span id="search_word"> </span>
-                        の検索結果(
-                        <span id="search_count"> </span>
-                        件)
-                    </span>
-                    <span id="note1" class="msg_text"></span>
-                    <span id="msg_guidance" class="msg_text">
-                        左側メニューで絞り込んでください。全
-                        <span id="total_count"></span>件
-                    </span>
-
-                    <img
-                        src="icon.png"
-                        id="title_icon"
-                        onerror="this.style.display='none'"
-                    />
-                    <div id="copyright_area">
-                        <div id="page_title"></div>
-                        <div id="copyright"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 絞り込み結果の表示） -->
-            <div id="table_area">
-                <table id="result_list" class="result_table">
-                    <thead>
-                        <tr id="result_title"></tr>
-                    </thead>
-                    <tbody id="result_tbody"></tbody>
-                </table>
-                <div id="result_over">
-                    検索結果が多すぎるため全件表示していません。タグやキーワードでもう少し絞り込んでください。
-                </div>
-                <div id="result_none">
-                    検索結果は０件です。<br />
-                    タグ選択、キーワードを変えて絞り込みを行ってください
-                </div>
-            </div>
-
-            <!-- フッター。お問い合わせ先 -->
-            <div id="result_footer_area">
-                お問合せ先： &nbsp; &nbsp;
-                <div>
-                    <div id="contact_area">
-                        <div id="contact"></div>
-                        <div id="mail"></div>
-                    </div>
-                    <div id="notes"></div>
-                </div>
-            </div>
-        </div>
-
-        <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
-        <script type="text/javascript" src="./tag_database.js"></script>
-        <script type="text/javascript" src="keyword_search.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
