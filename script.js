@@ -1,42 +1,53 @@
-function clearInitialText() {
-    var pasteArea = document.getElementById("pasteArea");
-    if (
-        pasteArea.innerText ===
-        "ここにExcelからコピーしたテーブルをペーストしてください。"
-    ) {
-        pasteArea.innerText = "";
+let isChatNameEnabled = false;
+let isDelimiterEnabled = false;
+
+function clearPasteArea() {
+    const pasteArea = document.getElementById("pasteArea");
+    pasteArea.value = "";
+    const outputArea = document.getElementById("output");
+    outputArea.style.display = "none";
+}
+
+function toggleChatName() {
+    isChatNameEnabled = !isChatNameEnabled;
+    const chatNameInput = document.getElementById("chatName");
+    if (isChatNameEnabled) {
+        chatNameInput.style.display = "inline";
+    } else {
+        chatNameInput.style.display = "none";
+        chatNameInput.value = "";
     }
 }
 
-function processTable() {
-    var pasteArea = document.getElementById("pasteArea");
-    var table = pasteArea.querySelector("table"); // ペーストされたテーブル要素を取得
-    var chatName = document.getElementById("chatName").value; // チャット名を取得
+function toggleDelimiter() {
+    isDelimiterEnabled = !isDelimiterEnabled;
+}
 
-    if (table) {
-        var concatenatedText = ""; // 連結するための空の文字列を初期化
-        for (var i = 0; i < table.rows.length; i++) {
-            if (table.rows[i].cells.length > 1) {
-                // 2列目が存在するか確認
-                var secondCell = table.rows[i].cells[1]; // 各行の2列目のセルを取得
-                var cellText = secondCell.textContent.trim(); // セルのテキストから不要な空白を削除
-                concatenatedText += cellText + "@tmc.twfr.toyota.co.jp"; // 2列目のセルのテキストを連結
-                if (i < table.rows.length - 1) {
-                    concatenatedText += ","; // 最後のセル以外の後ろにカンマを追加
-                }
-            }
+function processTable() {
+    const pasteArea = document.getElementById("pasteArea");
+    const chatName = document.getElementById("chatName").value;
+    const text = pasteArea.value.trim();
+
+    if (text) {
+        const delimiter = isDelimiterEnabled ? ";" : ",";
+        const rows = text.split("\n");
+        const emailSuffix = isDelimiterEnabled ? "" : "@tmc.twfr.toyota.co.jp";
+
+        const concatenatedText = rows.map((row) => row.trim() + emailSuffix).join(delimiter);
+        let finalUrl = `https://teams.microsoft.com/l/chat/0/0?users=${encodeURIComponent(
+            concatenatedText
+        )}`;
+
+        if (isChatNameEnabled && chatName) {
+            finalUrl += `&topicName=${encodeURIComponent(chatName)}`;
         }
 
-        // URLプレフィックスとサフィックスを追加
-        var finalUrl =
-            "https://teams.microsoft.com/l/chat/0/0?users=" +
-            encodeURIComponent(concatenatedText) +
-            "&topicName=" +
-            encodeURIComponent(chatName);
-
-        // 連結したURLをリンクとして表示
-        var linkElement = document.getElementById("generatedLink");
+        const linkElement = document.getElementById("generatedLink");
         linkElement.href = finalUrl;
-        linkElement.textContent = "Microsoft Teamsでチャットを開始"; // または他の適切なテキスト
+        linkElement.textContent = "Teamsでグルチャを開始";
+        linkElement.style.display = "inline-block";
+    } else {
+        const linkElement = document.getElementById("generatedLink");
+        linkElement.style.display = "none";
     }
 }
