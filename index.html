@@ -23,12 +23,12 @@
             </div>
             <br />
             <div class="flexbox-container">
-                <aside class="leftSide">@tmc.twfr～ 付き<br /></aside>
+                <aside class="leftSide">従業員コードのみ<br /></aside>
                 <label class="switch">
                     <input type="checkbox" id="toggleDelimiterBtn" onclick="toggleDelimiter()" />
                     <span class="slider"></span>
                 </label>
-                <aside class="rightSide">従業員コードのみ<br /></aside>
+                <aside class="rightSide">[@tmc.twfr～] あり<br /></aside>
             </div>
         </div>
 
@@ -56,11 +56,20 @@
                     クリア
                 </button>
             </div>
+            <p id="error-message" class="error-message">エラー: 未入力です</p>
         </div>
 
         <div class="output-area">
             <div id="output">
-                <a href="#" id="generatedLink" class="button-link" style="display: none"></a>
+                <a
+                    href="#"
+                    id="generatedLink"
+                    class="button-link"
+                    style="display: none"
+                    target="_blank"
+                    onclick="clearPasteArea();"
+                    >リンク</a
+                >
             </div>
         </div>
 
