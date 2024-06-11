@@ -43,7 +43,8 @@ function processTable() {
         const emailSuffix = isUserIdEnabled ? "" : "@tmc.twfr.toyota.co.jp";
 
         const concatenatedText = rows.map((row) => row.trim() + emailSuffix).join(delimiter);
-        let finalUrl = `https://teams.microsoft.com/l/chat/0/0?users=${encodeURIComponent(
+        // let finalUrl = `https://teams.microsoft.com/l/chat/0/0?users=${encodeURIComponent(
+let finalUrl = `msteams:/l/chat/0/0?users=${encodeURIComponent(
             concatenatedText
         )}`;
 
