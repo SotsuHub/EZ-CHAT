@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="UTF-8" />
         <title>かんたんグルチャ</title>
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="favicon-16x16.png"
-        />
+
+        <link rel="apple-touch-icon" href="favicon-180×180.png" />
+        <link rel="icon" type="image/png" href="favicon-256×256.png" />
+        <link rel="shortcut icon" href="favicon.ico" />
+
         <link rel="stylesheet" href="style.css" />
         <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
     </head>
     <body>
         <div class="header-area">
-            <img src="dj.png" id="img" alt="Image" />
-            <h1>かんたんグルチャ</h1>
+            <img src="appName.png" id="img" alt="Image" />
         </div>
 
         <div class="control-area">
@@ -61,7 +59,7 @@
                 <textarea
                     id="pasteArea"
                     class="pasteArea"
-                    placeholder="・エクセルのリストから簡単にグルチャを作れます&#13;・任意の一列を shift + ctrl + v で値貼り付けしてね"
+                    placeholder="・エクセルリストから簡単にグルチャ作成！&#13;・列を shift + ctrl + v で値貼付けしてね"
                 ></textarea>
             </div>
             <div class="button-group">
