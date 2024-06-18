@@ -11,8 +11,16 @@ function clearPasteArea() {
     const linkElement = document.getElementById("generatedLink");
     linkElement.style.display = "none";
 
+    const copyLinkBtn = document.getElementById("copyLinkBtn");
+    if (copyLinkBtn) {
+        copyLinkBtn.style.display = "none";
+    }
+
     const errorMessage = document.getElementById("error-message");
     errorMessage.style.display = "none";
+
+    const warningMessage = document.getElementById("warning-message");
+    warningMessage.style.display = "none";
 }
 
 function toggleChatName() {
@@ -36,16 +44,26 @@ function processTable() {
     const text = pasteArea.value.trim();
 
     const errorMessage = document.getElementById("error-message");
+    const warningMessage = document.getElementById("warning-message");
+
     if (text) {
         errorMessage.style.display = "none";
-        const delimiter = isUserIdEnabled ? ";" : ",";
         const rows = text.split("\n");
+
+        if (rows.length > 59) {
+            warningMessage.style.display = "block";
+            const outputArea = document.getElementById("output");
+            outputArea.style.display = "none";
+            return;
+        }
+
+        warningMessage.style.display = "none";
+        const delimiter = isUserIdEnabled ? ";" : ",";
         const emailSuffix = isUserIdEnabled ? "" : "@tmc.twfr.toyota.co.jp";
 
         const concatenatedText = rows
             .map((row) => row.trim() + emailSuffix)
             .join(delimiter);
-        // let finalUrl = `https://teams.microsoft.com/l/chat/0/0?users=${encodeURIComponent(
         let finalUrl = `msteams:/l/chat/0/0?users=${encodeURIComponent(
             concatenatedText
         )}`;
@@ -55,7 +73,7 @@ function processTable() {
         }
         console.log(finalUrl);
 
-        let linkElement = document.getElementById("generatedLink");
+        const linkElement = document.getElementById("generatedLink");
         linkElement.href = finalUrl;
         linkElement.textContent = "Teamsでグルチャを開始";
         linkElement.style.display = "inline-block";
