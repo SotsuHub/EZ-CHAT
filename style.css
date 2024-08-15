@@ -1,13 +1,13 @@
 body {
     margin: 0 auto;
     background-color: #f0f0f0;
-    width: 410px;
-    font-size: 12px;
+    width: 320px;
+    font-size: 10px;
 }
 
 /* Header Area */
 .header-area {
-    padding: 10px;
+    padding: 5px;
     background-color: #f1f1f1;
     display: flex;
     flex-direction: column;
@@ -15,14 +15,14 @@ body {
 }
 
 .header-area img {
-    width: 160px;
+    width: 140px;
     height: auto;
 }
 
 /* Input Area */
 .input-area {
-    padding: 20px;
-    margin: 20px;
+    padding: 12px;
+    margin: 12px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fafafa;
@@ -33,21 +33,26 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 20px;
-    margin-right: 20px;
+    margin-bottom: 15px;
+    margin-right: 15px;
 }
 
 .input-area .chatName,
 .input-area .pasteArea {
     width: 100%;
-    padding: 10px;
+    max-width: 255px;
+    min-width: 255px;
+    min-height: 30px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 10px;
+    margin: 0 auto;
+    display: block;
 }
 
 .input-area .pasteArea {
-    height: 200px;
+    height: 180px;
 }
 
 .button-group {
@@ -64,7 +69,8 @@ button {
     border-radius: 4px;
     cursor: pointer;
     align-self: flex-end;
-    width: 120px;
+    width: 110px;
+    font-size: 10px;
 }
 
 button:hover {
@@ -94,7 +100,7 @@ button:hover {
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease;
 }
 
 .button-link:hover {
@@ -105,14 +111,14 @@ button:hover {
     color: red;
     display: none;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 /* Control Area */
 .control-area {
     background-color: #f1f1f1;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .flexbox-container {
@@ -127,18 +133,18 @@ button:hover {
 
 .leftSide {
     text-align: right;
-    margin: 15px;
+    margin: 14px;
 }
 .rightSide {
     text-align: left;
-    margin: 15px;
+    margin: 14px;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 30px;
+    width: 50px;
+    height: 26px;
 }
 
 .switch input {
@@ -163,9 +169,9 @@ button:hover {
 .slider:before {
     position: absolute;
     content: "";
-    height: 23px;
-    width: 23px;
-    left: 6px;
+    height: 18px;
+    width: 18px;
+    left: 4px;
     bottom: 4px;
     background-color: white;
     -webkit-transition: 0.4s;
@@ -182,9 +188,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(25px);
+    -ms-transform: translateX(25px);
+    transform: translateX(25px);
 }
 
 .switch input:checked + .slider:before {
